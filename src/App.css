@@ -1,8 +1,18 @@
 .bg-dark-gray{
   background-color: #1f242d !important;
 }
+
 .bg-light-dark{
   background-color: #06090e !important;
+}
+
+.bg-black{
+  background-color: #000000 !important;
+}
+
+/* Header section */
+.navbar{
+  padding: 18px 20px !important;
 }
 
 .header-section span{
@@ -26,6 +36,9 @@
   line-height: 0 !important;
 }
 
+.navbar-dark .navbar-brand {
+  padding: 0;
+}
 
 .bell-icon{
   position: relative;
@@ -41,8 +54,84 @@
   background-color: #5597fb;
   border-radius: 50%;
 }
+
 .bell-icon path{
   fill: none;
   stroke-width: 29px;
   stroke: white;
 }
+
+/* Sidebar style */
+.sidebar-container{
+  min-width: 202.5px;
+  min-height: -webkit-calc(100vh - 60px);
+  min-height: calc(100vh - 60px);
+}
+
+.sidebar-container .list-group-item::after{
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  height: 100%;
+  content: '';
+  box-shadow: 0 0 4px 0 #5664fb;
+  background-image: -moz-linear-gradient(to bottom, #5597fb, #5664fb);
+  background-image: -webkit-linear-gradient(to bottom, #5597fb, #5664fb);
+  background-image: linear-gradient(to bottom, #5597fb, #5664fb);
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: all .4s ease-in-out;
+  -moz-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
+  border-radius: 0 3px 3px 0;
+}
+
+.sidebar-container .list-group-item{
+  padding: .407rem 1.25rem;
+  margin: 5px 0;
+}
+
+.sidebar-container .list-group-item:hover::after{
+  opacity: 1;
+  visibility: visible;
+}
+
+.sidebar-container .list-group-item a{
+  -webkit-transition: all .4s ease-in-out;
+  -moz-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
+}
+
+.sidebar-container .list-group-item a:hover{
+  text-decoration: none;
+}
+
+.sidebar-container .list-group-item:hover a{
+  color: #5597fb !important;
+}
+
+.nav-icon{
+  position: relative;
+}
+
+.active-icon{
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.active-icon,
+.sidebar-container .list-group-item:hover img:not(.active-icon){
+  opacity: 0;
+  -webkit-transition: all .4s ease-in-out;
+  -moz-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
+}
+
+.sidebar-container .list-group-item:hover .active-icon{
+  opacity: 1;
+}
+
