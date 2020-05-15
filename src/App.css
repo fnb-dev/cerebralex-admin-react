@@ -10,6 +10,10 @@
   background-color: #000000 !important;
 }
 
+.dropdown-toggle::after{
+  content: ;
+}
+
 /* Header section */
 .navbar{
   padding: 18px 20px !important;
@@ -40,10 +44,14 @@
   padding: 0;
 }
 
-.bell-icon{
+.notfications .dropdown-toggle{
   position: relative;
+  padding: 5px;
 }
-.bell-icon::after{
+.notfications .dropdown-toggle::before{
+  content: url(./images/alert-icon.jpg);
+}
+.notfications .dropdown-toggle::after{
   content: "";
   position: absolute;
   right: -2px;
@@ -53,6 +61,7 @@
   box-shadow: 0 0 4px 0 #5597fb;
   background-color: #5597fb;
   border-radius: 50%;
+  border: 0;
 }
 
 .bell-icon path{
@@ -68,7 +77,16 @@
   min-height: calc(100vh - 60px);
 }
 
-.sidebar-container .list-group-item::after{
+.sidebar-container .list-group-item{
+  padding: .407rem 1.25rem;
+  margin: 5px 0;
+  border: 0;
+  -webkit-transition: all .4s ease-in-out;
+  -moz-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
+}
+
+.sidebar-container .list-group-item::after {
   position: absolute;
   left: 0;
   top: 0;
@@ -88,27 +106,19 @@
   border-radius: 0 3px 3px 0;
 }
 
-.sidebar-container .list-group-item{
-  padding: .407rem 1.25rem;
-  margin: 5px 0;
-}
-
+.sidebar-container .list-group-item.active::after,
 .sidebar-container .list-group-item:hover::after{
   opacity: 1;
   visibility: visible;
 }
 
-.sidebar-container .list-group-item a{
-  -webkit-transition: all .4s ease-in-out;
-  -moz-transition: all .4s ease-in-out;
-  transition: all .4s ease-in-out;
+.sidebar-container .list-group-item-action {
+  color: #ffffff;
 }
 
-.sidebar-container .list-group-item a:hover{
-  text-decoration: none;
-}
-
-.sidebar-container .list-group-item:hover a{
+.sidebar-container .list-group-item.active,
+.sidebar-container .list-group-item-action:focus,
+.sidebar-container .list-group-item:hover{
   color: #5597fb !important;
 }
 
@@ -124,6 +134,7 @@
 }
 
 .active-icon,
+.sidebar-container .list-group-item.active img:not(.active-icon),
 .sidebar-container .list-group-item:hover img:not(.active-icon){
   opacity: 0;
   -webkit-transition: all .4s ease-in-out;
@@ -131,6 +142,7 @@
   transition: all .4s ease-in-out;
 }
 
+.sidebar-container .list-group-item.active .active-icon,
 .sidebar-container .list-group-item:hover .active-icon{
   opacity: 1;
 }

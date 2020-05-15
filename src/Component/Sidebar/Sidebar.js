@@ -1,4 +1,6 @@
 import React from 'react';
+import { ListGroup } from 'react-bootstrap';
+
 import accounts from '../../images/svgs/accounts.svg'
 import accountsActive from '../../images/svgs/accounts-color.svg'
 import analytics from '../../images/svgs/analytics.svg'
@@ -15,62 +17,50 @@ import libraryActive from '../../images/svgs/library-color.svg'
 const Sidebar = () => {
     return(
         <aside className="sidebar-expanded sidebar-container bg-light-dark" id="sidebar-container">
-            <ul className="list-group">
-                < li className = "list-group-item bg-light-dark" >
-                    <a href="#" className=" d-flex align-items-center text-white">
-                        <div className="nav-icon">
-                            <img src={accounts} alt="accounts icon" />
-                            <img className="active-icon" src={accountsActive} alt="accounts icon" />
-                        </div>
-                        <div className="nav-text ml-3">Accounts</div>
-                    </a>
-                </li>
-                < li className = "list-group-item bg-light-dark" >
-                    <a href="#" className=" d-flex align-items-center text-white">
-                        <div className="nav-icon">
-                            <img className="active-icon" src={dashboard} style={{width:'17px', height: '14px'}} alt="accounts icon" />
-                            <img src={dashboardDefault} style={{width:'17px', height: '14px'}} alt="accounts icon" />
-                        </div>
-                        <div className="nav-text ml-3">Dashboard</div>
-                    </a>
-                </li>
-                < li className = "list-group-item bg-light-dark" >
-                    <a href="#" className=" d-flex align-items-center text-white">
-                        <div className="nav-icon">
-                            <img src={campaigns} alt="accounts icon" />
-                            <img className="active-icon" src={campaignsActive} alt="accounts icon" />
-                        </div>
-                        <div className="nav-text ml-3">Campaigns</div>
-                    </a>
-                </li>
-                < li className = "list-group-item bg-light-dark" >
-                    <a href="#" className=" d-flex align-items-center text-white">
-                        <div className="nav-icon">
-                            <img src={analytics} alt="accounts icon" />
-                            <img className="active-icon" src={analyticsActive} alt="accounts icon" />
-                        </div>
-                        <div className="nav-text ml-3">Analytics</div>
-                    </a>
-                </li>
-                < li className = "list-group-item bg-light-dark" >
-                    <a href="#" className=" d-flex align-items-center text-white">
-                        <div className="nav-icon">
-                            <img src={library} alt="accounts icon" />
-                            <img className="active-icon" src={libraryActive} alt="accounts icon" />
-                        </div>
-                        <div className="nav-text ml-3">Creative Library</div>
-                    </a>
-                </li>
-                < li className = "list-group-item bg-light-dark" >
-                    <a href="#" className=" d-flex align-items-center text-white">
-                        <div className="nav-icon">
-                            <img src={history} alt="accounts icon" />
-                            <img className="active-icon" src={historyActive} alt="accounts icon" />
-                        </div>
-                        <div className="nav-text ml-3">Change History</div>
-                    </a>
-                </li>
-            </ul>
+            <ListGroup defaultActiveKey="#link1">
+                <ListGroup.Item className="bg-light-dark d-flex align-items-center" action href="#link1">
+                    <div className="nav-icon">
+                        <img src={accounts} alt="accounts icon" />
+                        <img className="active-icon" src={accountsActive} alt="accounts icon" />
+                    </div>
+                    <div className="nav-text ml-3" data-title="Accounts">Accounts</div>
+                </ListGroup.Item>
+                <ListGroup.Item className="bg-light-dark d-flex align-items-center" action href="#link2">
+                    <div className="nav-icon">
+                        <img className="active-icon" src={dashboard} style={{width:'17px', height: '14px'}} alt="accounts icon" />
+                        <img src={dashboardDefault} style={{width:'17px', height: '14px'}} alt="accounts icon" />
+                    </div>
+                    <div className="nav-text ml-3" data-title="Dashboard">Dashboard</div>
+                </ListGroup.Item>
+                <ListGroup.Item className="bg-light-dark d-flex align-items-center" action href="#link3">
+                    <div className="nav-icon">
+                        <img src={campaigns} alt="accounts icon" />
+                        <img className="active-icon" src={campaignsActive} alt="accounts icon" />
+                    </div>
+                    <div className="nav-text ml-3" data-title="Campaigns">Campaigns</div>
+                </ListGroup.Item>
+                <ListGroup.Item className="bg-light-dark d-flex align-items-center" action href="#link4">
+                    <div className="nav-icon">
+                        <img src={analytics} alt="accounts icon" />
+                        <img className="active-icon" src={analyticsActive} alt="accounts icon" />
+                    </div>
+                    <div className="nav-text ml-3" data-title="Analytics">Analytics</div>
+                </ListGroup.Item>
+                <ListGroup.Item className="bg-light-dark d-flex align-items-center" action href="#link5">
+                    <div className="nav-icon">
+                        <img src={library} alt="accounts icon" />
+                        <img className="active-icon" src={libraryActive} alt="accounts icon" />
+                    </div>
+                    <div className="nav-text ml-3" data-title="Creative Library">Creative Library</div>
+                </ListGroup.Item>
+                <ListGroup.Item className="bg-light-dark d-flex align-items-center" action href="#link6">
+                    <div className="nav-icon">
+                        <img src={history} alt="accounts icon" />
+                        <img className="active-icon" src={historyActive} alt="accounts icon" />
+                    </div>
+                    <div className="nav-text ml-3" data-title="Change History">Change History</div>
+                </ListGroup.Item>
+            </ListGroup>
         </aside>
     )
 }
