@@ -44,6 +44,77 @@
   padding: 0;
 }
 
+.dropdown-toggle{
+  padding: 0 !important;
+  color: #ffffff !important;
+}
+
+.show .dropdown-toggle{
+  color: #5597fb !important;
+}
+
+.dropdown-toggle::after {
+  display: inline-block;
+  margin-left: .255em;
+  vertical-align: .255em;
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid white !important;
+  border-bottom: 2px solid white !important;
+  border-left: 0 !important;
+  border-top: 0 !important;
+  -webkit-transform: rotate(45deg) translateY(-1px) translateX(5px);
+  transform: rotate(45deg) translateY(-1px) translateX(5px);
+  -webkit-transition: transform .3s;
+  transition: transform .3s;
+}
+
+.show .dropdown-toggle::after {
+  border-color: #5597fb !important;
+  -webkit-transform: rotate(-135deg) translateY(-1px) translateX(-8px);
+  transform: rotate(-135deg) translateY(-1px) translateX(-8px);
+}
+
+.dropdown-menu{
+    box-shadow: 0 0 8px 0 #000000;
+    border: solid 1px #1f242d !important;
+    background-color: #06090e !important;
+    color: #ffffff !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+    margin-top: 7px !important;
+}
+
+.dropdown-menu::before{
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-right: 1px solid #1f242d;
+  border-top: 1px solid #1f242d;
+  background-color: #06090e;
+  z-index: 3;
+  right: 35%;
+  position: absolute;
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  top: -5px;
+}
+
+.dropdown-item{
+  padding: 20px !important;
+  color: #ffffff !important;
+  border-bottom: solid 1px #1f242d !important;
+}
+
+.dropdown-item:hover{
+  background-color: #10141c !important;
+}
+
+.dropdown-item:last-child{
+  border-bottom: 0 !important;
+}
+
 .notfications .dropdown-toggle{
   position: relative;
   padding: 5px;
@@ -61,7 +132,14 @@
   box-shadow: 0 0 4px 0 #5597fb;
   background-color: #5597fb;
   border-radius: 50%;
-  border: 0;
+  border: 0 !important;
+  -webkit-transform: none;
+  transform: none;
+}
+
+.user-info .dropdown-menu{
+  left: auto;
+  right: 0;
 }
 
 .bell-icon path{
