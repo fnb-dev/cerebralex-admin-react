@@ -971,8 +971,17 @@ h3{
 }
 
 .activities-dropdown .form-group{
-  padding: 12px 0px;
+  padding: 12px 0px 0;
   width: 145px;
+  margin-bottom: 0;
+}
+
+.activities-dropdown .form-group .form-check:last-child{
+  border-bottom: 0 !important;
+}
+
+.dropdown-box.activities-dropdown::before{
+  left: 38%;
 }
 
 .campaign-chart > .row{
@@ -981,9 +990,12 @@ h3{
   background-color: #06090e;
   margin-top: 6px;
   position: relative;
-  overflow: hidden;
   align-items: center;
   min-height: 65px;
+}
+
+.campaign-chart>.row:hover{
+  background-color: #10141c;
 }
 
 .campaign-chart > .row::before{
@@ -994,22 +1006,47 @@ h3{
   position: absolute;
   width: 4px;
   background-color: #10141c;
+  border-radius: 4px 0 0 4px;
 }
 
 .campaign-chart>.row.title-row{
   min-height: 42px;
 }
 
-.title-row{
+.title-row,
+.total-row{
   font-weight: 600;
+}
+
+.campaign-chart > .row > .col{
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  text-align: center;
 }
 
 .action-column{
   width: 80px !important;
 }
 
+.campaign-chart>.row>.col.action-column,
+.campaign-chart>.row>.col.name{
+  -webkit-box-pack: left;
+  -ms-flex-pack: left;
+  justify-content: left;
+  text-align: left;
+}
+
 .name.col{
   width: 310px;
+}
+
+.name.col .action {
+  display: none !important;
+}
+
+.name.col:hover .action{
+  display: flex !important;
 }
 
 .select-mark{
@@ -1050,4 +1087,78 @@ h3{
 }
 .select-check:checked ~ .checkbox::after{
   opacity: 1;
+}
+
+.increase{
+  color: #46e1b6;
+}
+
+.increase,
+.decrease{
+  font-size: 12px;
+  margin-left: 6px;
+}
+
+.decrease{
+  color: #e23087;
+}
+
+.col.name .action button{
+  background: transparent !important;
+  box-shadow: none !important;
+  font-size: 12px !important;
+  color: #8393a8;
+  padding: 3px !important;
+  margin-top: 5px;
+  margin-right: 20px;
+}
+
+.col.name .action button:last-child{
+  margin-right: 0;
+}
+
+.col.name .action button svg{
+  margin-right: 4px;
+  font-size: 10px;
+}
+
+.activities-triger{
+  margin-left: 14px;
+}
+
+.activities-triger span{
+  display: inline-block;
+}
+
+.activities-triger .active{
+  width: 11px;
+  height: 11px;
+  box-shadow: 0 0 4px 0 #46e1b6;
+  background-color: #46e1b6;
+  border-radius: 50%;
+}
+
+.activities-triger > button{
+  padding: 0;
+  margin-left: 6px;
+  font-size: 10px !important;
+  opacity: 0;
+  box-shadow: none !important;
+  outline: none;
+}
+
+.activities-triger>button:hover{
+  box-shadow: none !important;
+  outline: none;
+}
+
+.activities-triger:hover > button{
+  opacity: 1;
+}
+
+.cost svg{
+  line-height: 0;
+  color: #5597fb;
+  vertical-align: middle;
+  font-size: 16px !important;
 }
