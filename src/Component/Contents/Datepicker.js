@@ -20,7 +20,7 @@ const Datepicker = () => {
                   <button className="icon" onClick={() => setDateToggleState(!dateToggleState)}><i className="fa fa-chevron-down" aria-hidden="true"></i></button>
                 </div>
               </div>
-              <div className="datepicker-tab-wrap">
+              <div className="datepicker-tab-wrap dropdown-box">
                 <button className="hideDatepicker" onClick={() => setDateToggleState(!dateToggleState)}><i className="fa fa-times" aria-hidden="true"></i></button>
                 <Tabs
                   defaultActiveKey="presets"
@@ -144,11 +144,11 @@ const Datepicker = () => {
                         minDate={startDate}
                       />
                     </Row>
-                    <Row className="button-row text-center">
-                        <Col>
-                          <Button type="submit">Done</Button>
-                        </Col>
-                    </Row>
+                    <Form.Group className="button-row text-center">
+                      <Col>
+                        <Button type="submit">Done</Button>
+                      </Col>
+                    </Form.Group>
                   </Tab>
                 </Tabs>
               </div>

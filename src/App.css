@@ -35,9 +35,13 @@ h3{
   border-left: 1px solid #1f242d !important;
 }
 
-.btn-outline-white{
-  border: solid 1px white !important;
+.filter-btn{
+  border: 1px solid #191c1f !important;
   color: white !important;
+}
+
+.shown .filter-btn{
+  border: solid 1px white !important;
 }
 
 .bg-dark-gray {
@@ -52,9 +56,41 @@ h3{
   background-color: #000000 !important;
 }
 
-.dropdown-toggle::after {
-  content: ;
+
+.dropdown-box{
+  position: absolute;
+  left: 0;
+  box-shadow: 0 0 8px 0 #000000;
+  border: solid 1px #1f242d;
+  background-color: #06090e;
+  margin-top: 10px;
+  border-radius: 4px;
+  display: none;
+  z-index: 9;
 }
+
+.shown .dropdown-box{
+  display: block;
+}
+
+.dropdown-box::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-right: 1px solid #1f242d;
+  border-top: 1px solid #1f242d;
+  background-color: #06090e;
+  z-index: 3;
+  left: 50%;
+  margin-left: -4px;
+  position: absolute;
+  transform: rotate(-45deg);
+  top: -5px;
+}
+
+/* .dropdown-toggle::after {
+  content: ;
+} */
 
 /* Header section */
 .navbar {
@@ -446,15 +482,8 @@ h3{
 }
 
 .datepicker-tab-wrap {
-  box-shadow: 0 0 8px 0 #000000;
-  border: solid 1px #1f242d;
-  background-color: #06090e;
-  border-radius: 4px;
-  margin-top: 6.5px;
-  position: absolute;
+  left: auto;
   right: 0;
-  display: none;
-  z-index: 9;
 }
 
 .show .datepicker-tab-wrap{
@@ -533,6 +562,7 @@ h3{
   content: "";
   position: absolute;
   left: 0;
+  border-radius: 4px;
 }
 
 .radio .form-check-label::before,
@@ -572,14 +602,18 @@ h3{
 .datepicker-tab-wrap .button-row {
   position: absolute;
   bottom: 1px;
+  left: 1px;
+}
+
+.button-row.form-group{
   margin: 0;
-  width: 320px;
+  width: 318px;
   box-shadow: 0 -3px 6px 0 rgba(0, 0, 0, 0.8);
   border-top: solid 1px #1f242d;
   background-color: #06090e;
 }
 
-.datepicker-tab-wrap .button-row button {
+.button-row.form-group button {
   width: 130px;
   height: 40px;
   border-radius: 4px;
@@ -747,6 +781,7 @@ h3{
   position: relative;
   left: auto;
   bottom: auto;
+  margin: 0;
 }
 
 .selectedDate p{
@@ -779,43 +814,53 @@ h3{
   margin-right: 15px;
 }
 
-.search-wrapper .form-inline button{
-  background: transparent;
+.filter-dropdown .search-wrapper{
+  padding: 8px 0 0;
+  border-bottom: 1px solid #1f242d !important;
+  margin-bottom: 8px;
+}
+
+.filter-dropdown .search-wrapper .form-inline {
+  margin-right: 0;
+}
+
+.search-wrapper button.search-btn:hover,
+.search-wrapper button.search-btn{
+  background: transparent !important;
   box-shadow: none;
   color: #626e7e;
   padding: 3px;
+  box-shadow: none;
 }
 
-.filter-dropdown{
+.search-wrapper button:active,
+.search-wrapper button:focus{
+  box-shadow: none !important;
+}
+
+.filter-dropdown {
   width: 320px;
   height: 590.6px;
-  box-shadow: 0 0 8px 0 #000000;
-  border: solid 1px #1f242d;
-  background-color: #06090e;
-  margin-top: 10px;
 }
 
-.filter-dropdown::before{
-  content: "";
-  width: 8px;
-  height: 8px;
-  border-right: 1px solid #1f242d;
-  border-top: 1px solid #1f242d;
-  background-color: #06090e;
-  z-index: 3;
+.filter-dropdown::before {
   left: 15%;
-  position: absolute;
-  transform: rotate(-45deg);
-  top: -5px;
 }
 
-.close-filter-dropdown{
+.close-dropdown{
   border-bottom: solid 1px #1f242d;
 }
 
-.close-filter-dropdown button{
+.close-dropdown button{
   display: block;
   margin-left: auto;
+  padding: 10px !important;
+  outline: none;
+}
+
+.close-dropdown button:focus{
+  outline: none;
+  box-shadow: none;
 }
 
 .toggle-icon{
@@ -825,6 +870,11 @@ h3{
 .checkbox.form-group {
   padding: 20px 0;
   border-bottom: solid 1px #1f242d;
+  margin-bottom: 0 !important;
+}
+
+.checkbox.form-group:last-child{
+  border-bottom: 0 !important;
 }
 
 .checkbox.form-group > label span{
@@ -833,7 +883,11 @@ h3{
 
 .checkbox.form-group .form-check {
   border: 0;
-  padding: 8px 0 !important;
+  padding: 7px 0 !important;
+}
+
+.checkbox.form-group .form-check:last-child{
+  padding-bottom: 0 !important;
 }
 
 .checkbox .form-check-label::after {
@@ -844,3 +898,156 @@ h3{
   background-image: url(./images/check-icon.png);
 }
 
+.checkbox .col-form-label {
+  padding-top: 0 !important;
+  font-size: 12px;
+}
+
+.active-fliter-item{
+  margin-right: 20px;
+  color: #8393a8;
+  position: relative;
+}
+
+.active-fliter-action{
+  border-bottom: 1px solid #3e4650;
+  padding-bottom: 6px;
+}
+
+.filter-text{
+  margin-left: 8px;
+  color: white;
+  cursor: pointer;
+}
+
+.active-fliter-action > button{
+  margin-left: 23px;
+}
+
+.active-fliter-item button:focus,
+.active-fliter-item button:active,
+.active-fliter-item button{
+  padding: 0;
+  box-shadow: none;
+  outline: none;
+}
+
+.active-fliter-item .close-dropdown{
+  border-bottom: 0 !important;
+}
+
+.fliter-edit{
+  width: 143px;
+}
+
+.fliter-edit .close-dropdown button{
+  line-height: 13px;
+  font-size: 14px !important;
+}
+
+.fliter-edit .checkbox.form-group{
+  padding-top: 0 !important;
+}
+
+.activities .form-check::after {
+  content: "";
+  width: 11px;
+  height: 11px;
+  box-shadow: 0 0 4px 0 #46e1b6;
+  background-color: #46e1b6;
+  float: right;
+  margin-top: 6px;
+  border-radius: 50%;
+}
+
+.activities .form-check.pause::after {
+  content: "||";
+  background-color: #6f7680;
+  box-shadow: none;
+  color: #000000;
+  font-size: 5px;
+  text-align: center;
+  line-height: 10px;
+}
+
+.activities-dropdown .form-group{
+  padding: 12px 0px;
+  width: 145px;
+}
+
+.campaign-chart > .row{
+  padding: 12px 0 12px 4px;
+  border-radius: 4px;
+  background-color: #06090e;
+  margin-top: 6px;
+  position: relative;
+  overflow: hidden;
+  align-items: center;
+  min-height: 65px;
+}
+
+.campaign-chart > .row::before{
+  content: "";
+  left: 0;
+  top: 0;
+  bottom: 0;
+  position: absolute;
+  width: 4px;
+  background-color: #10141c;
+}
+
+.campaign-chart>.row.title-row{
+  min-height: 42px;
+}
+
+.title-row{
+  font-weight: 600;
+}
+
+.action-column{
+  width: 80px !important;
+}
+
+.name.col{
+  width: 310px;
+}
+
+.select-mark{
+  width: 17px;
+  margin-left: 10px;
+  position: relative;
+  line-height: 0;
+}
+
+.checkbox{
+  width: 17px;
+  height: 17px;
+  border-radius: 2px;
+  border: solid 1px #8393a8;
+  position: relative;
+  margin: 0;
+}
+.checkbox::after{
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 13px;
+  height: 13px;
+  background-image: url(./images/check-icon.png);
+  background-position: center center;
+  background-repeat: no-repeat;
+  margin: 2px;
+  -webkit-transition: all .4s;
+  -ms-transition: all .4s;
+  transition: all .4s;
+  opacity: 0;
+}
+
+.select-check{
+  width: 17px;
+  position: absolute;
+  opacity: 0;
+}
+.select-check:checked ~ .checkbox::after{
+  opacity: 1;
+}
