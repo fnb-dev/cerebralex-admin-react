@@ -1,9 +1,11 @@
-import React, {useState} from 'react';
-import {Row, Col, Button, Form, FormControl } from 'react-bootstrap';
+import React from 'react';
+import {Row, Col, Button} from 'react-bootstrap';
 import Filter from "./Filter";
 import Datepicker from './Datepicker';
 import Search from './Search';
 import CampaignChart from './CampaignChart';
+
+import graphchart from '../../images/graphchart.jpg';
 
 const Contents = () => {
     return (
@@ -22,6 +24,39 @@ const Contents = () => {
           <Search />
         </Row>
         <CampaignChart />
+        <div className="graph-chart-wrap">
+          <Row className="title no-gutters">
+            <Col sm={12}>
+              <span>Top Campaigns</span>
+            </Col>
+          </Row>
+          <Row className="graph-row no-gutters">
+            <Col className="information-col col-auto">
+              <div className="info-item clicks">
+                <p>Clicks</p>
+                <p>4,856,857</p>
+              </div>
+              <div className="info-item impressions">
+                <p>Impressions</p>
+                <p>27,856,857</p>
+              </div>
+              <div className="info-item cost">
+                <p>Cost</p>
+                <p>$24,959.84</p>
+              </div>
+            </Col>
+            <Col className="graph-chart col-auto">
+              <img src={graphchart} alt="Graph chart" />
+            </Col>
+          </Row>
+          <Row className="no-gutters">
+            <Col className="col-auto">&nbsp;</Col>
+            <Col className="d-flex time-range">
+              <span>Sun</span>
+              <span className="ml-auto">Sat</span>
+            </Col>
+          </Row>
+        </div>
       </Col>
     );
 }

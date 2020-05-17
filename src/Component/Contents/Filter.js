@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Row, Col, Button, Form, FormControl } from 'react-bootstrap';
+import {Col, Button, Form, FormControl } from 'react-bootstrap';
 import { Scrollbars } from "react-custom-scrollbars";
 
 const Filter = () => {
@@ -62,19 +62,19 @@ const Filter = () => {
                                 type="radio"
                                 label="Active"
                                 name="status"
-                                id="active"
+                                id="active2"
                                 />
                                 <Form.Check
                                 type="radio"
                                 label="Pause"
                                 name="status"
-                                id="pause"
+                                id="pause2"
                                 />
                                 <Form.Check
                                 type="radio"
                                 label="Archive"
                                 name="status"
-                                id="archive"
+                                id="archive2"
                                 />
                             </Col>
                         </Form.Group>
@@ -99,19 +99,19 @@ const Filter = () => {
                             type="radio"
                             label="Active"
                             name="status"
-                            id="active"
+                            id="active3"
                             />
                             <Form.Check
                             type="radio"
                             label="Pause"
                             name="status"
-                            id="pause"
+                            id="pause3"
                             />
                             <Form.Check
                             type="radio"
                             label="Archive"
                             name="status"
-                            id="archive"
+                            id="archive3"
                             />
                         </Col>
                     </Form.Group>
@@ -153,19 +153,19 @@ const Filter = () => {
                             type="radio"
                             label="Active"
                             name="account-manager"
-                            id="active2"
+                            id="active4"
                             />
                             <Form.Check
                             type="radio"
                             label="Pause"
                             name="account-manager"
-                            id="pause2"
+                            id="pause4"
                             />
                             <Form.Check
                             type="radio"
                             label="Archive"
                             name="account-manager"
-                            id="archive2"
+                            id="archive4"
                             />
                         </Col>
                         : ""

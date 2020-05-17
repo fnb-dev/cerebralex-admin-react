@@ -1,14 +1,16 @@
 import React, {useState} from 'react';
-import {Row, Col, Button, Form, FormControl } from 'react-bootstrap';
+import {Row, Col, Button, Form} from 'react-bootstrap';
 
 const CampaignChart = () => {
+    const [activities, setActivities] = useState(false)
+    const [editToggle, setEditToggle] = useState(false)
     return(
         <div className="campaign-chart mt-3 pt-3">
           <Row className="title-row no-gutters">
             <Col className="action-column col-auto d-flex align-items-center">
               <div className="select-mark">
                 <input id="checkbox-1" className="select-check" type="checkbox" />
-                <label for="checkbox-1" className="checkbox"></label>
+                <label htmlFor="checkbox-1" className="checkbox"></label>
               </div>
             </Col>
             <Col className="name col-auto">Campaign Name</Col>
@@ -17,7 +19,7 @@ const CampaignChart = () => {
             <Col className="impressions">Impressions</Col>
             <Col className="ctr">CTR</Col>
             <Col className="avg-cpc">Avg. CPC</Col>
-            <Col className="cost"><i class="fas fa-sort-up"></i> Cost</Col>
+            <Col className="cost"><i className="fas fa-sort-up"></i> Cost</Col>
             <Col className="avg-pos">Avg. Pos</Col>
             <Col className="showed">Showed</Col>
           </Row>
@@ -25,12 +27,12 @@ const CampaignChart = () => {
             <Col className="action-column col-auto d-flex align-items-center">
               <div className="select-mark">
                 <input id="checkbox-2" className="select-check" type="checkbox" />
-                <label for="checkbox-2" className="checkbox"></label>
+                <label htmlFor="checkbox-2" className="checkbox"></label>
               </div>
-              <div className="activities">
+              <div className={activities ? "activities shown" : "activities"}>
                 <div className="activities-triger">
                   <span className="active"></span>
-                  <Button  variant="transparent"><i className="fa fa-chevron-down" aria-hidden="true"></i></Button>
+                  <Button  variant="transparent" onClick={() => setActivities(!activities)}><i className="fa fa-chevron-down" aria-hidden="true"></i></Button>
                 </div>
                 <div className="dropdown-box activities-dropdown">
                     <Form.Group className="radio">
@@ -39,13 +41,13 @@ const CampaignChart = () => {
                           type="radio"
                           label="Active"
                           name="status"
-                          id="active3"
+                          id="active13"
                           />
                           <Form.Check
                           type="radio"
                           label="Pause"
                           name="status"
-                          id="pause3"
+                          id="pause32"
                           className="pause"
                           />
                       </Col>
@@ -63,12 +65,12 @@ const CampaignChart = () => {
             </Col>
             <Col className="budget d-flex">
               <span>$25,000</span>
-              <div className="edit-budget">
-                <span className="edit-toggler increase">+25%</span>
+              <div className={editToggle ? "edit-budget shown" : "edit-budget"}>
+                <span className="edit-toggler increase" onClick={() => setEditToggle(!editToggle)}>+25% <i className="fas fa-pen ml-2"></i></span>
                 <div className="dropdown-box edit-dropdown">
-                  <div className="close-dropdown">
+                  <div className="close-dropdown d-flex align-items-center">
                       <span>Edit Multiplier</span>
-                      <Button variant="transparent"><i className="fa fa-times" aria-hidden="true"></i></Button>
+                      <Button variant="transparent" onClick={() => setEditToggle(!editToggle)}><i className="fa fa-times" aria-hidden="true"></i></Button>
                   </div>
                   <div className="editable-content">
                     <input type="text" placeholder="100%" />
@@ -113,7 +115,7 @@ const CampaignChart = () => {
             <Col className="action-column col-auto d-flex align-items-center">
               <div className="select-mark">
                 <input id="checkbox-3" className="select-check" type="checkbox" />
-                <label for="checkbox-3" className="checkbox"></label>
+                <label htmlFor="checkbox-3" className="checkbox"></label>
               </div>
               <div className="activities">
                 <div className="activities-triger">
@@ -127,13 +129,13 @@ const CampaignChart = () => {
                           type="radio"
                           label="Active"
                           name="status"
-                          id="active3"
+                          id="active31"
                           />
                           <Form.Check
                           type="radio"
                           label="Pause"
                           name="status"
-                          id="pause3"
+                          id="pause33"
                           className="pause"
                           />
                       </Col>
@@ -152,9 +154,9 @@ const CampaignChart = () => {
             <Col className="budget d-flex">
               <span>$25,000</span>
               <div className="edit-budget">
-                <span className="edit-toggler increase">+25%</span>
+                <span className="edit-toggler increase">+25% <i className="fas fa-pen ml-2"></i></span>
                 <div className="dropdown-box edit-dropdown">
-                  <div className="close-dropdown">
+                  <div className="close-dropdown d-flex align-items-center">
                       <span>Edit Multiplier</span>
                       <Button variant="transparent"><i className="fa fa-times" aria-hidden="true"></i></Button>
                   </div>
@@ -201,7 +203,7 @@ const CampaignChart = () => {
             <Col className="action-column col-auto d-flex align-items-center">
               <div className="select-mark">
                 <input id="checkbox-4" className="select-check" type="checkbox" />
-                <label for="checkbox-4" className="checkbox"></label>
+                <label htmlFor="checkbox-4" className="checkbox"></label>
               </div>
               <div className="activities">
                 <div className="activities-triger">
@@ -215,13 +217,13 @@ const CampaignChart = () => {
                           type="radio"
                           label="Active"
                           name="status"
-                          id="active3"
+                          id="active32"
                           />
                           <Form.Check
                           type="radio"
                           label="Pause"
                           name="status"
-                          id="pause3"
+                          id="pause13"
                           className="pause"
                           />
                       </Col>
@@ -240,9 +242,9 @@ const CampaignChart = () => {
             <Col className="budget d-flex">
               <span>$25,000</span>
               <div className="edit-budget">
-                <span className="edit-toggler increase">+25%</span>
+                <span className="edit-toggler increase">+25% <i className="fas fa-pen ml-2"></i></span>
                 <div className="dropdown-box edit-dropdown">
-                  <div className="close-dropdown">
+                  <div className="close-dropdown d-flex align-items-center">
                       <span>Edit Multiplier</span>
                       <Button variant="transparent"><i className="fa fa-times" aria-hidden="true"></i></Button>
                   </div>
@@ -289,7 +291,7 @@ const CampaignChart = () => {
             <Col className="action-column col-auto d-flex align-items-center">
               <div className="select-mark">
                 <input id="checkbox-5" className="select-check" type="checkbox" />
-                <label for="checkbox-5" className="checkbox"></label>
+                <label htmlFor="checkbox-5" className="checkbox"></label>
               </div>
               <div className="activities">
                 <div className="activities-triger">
@@ -303,13 +305,13 @@ const CampaignChart = () => {
                           type="radio"
                           label="Active"
                           name="status"
-                          id="active3"
+                          id="active34"
                           />
                           <Form.Check
                           type="radio"
                           label="Pause"
                           name="status"
-                          id="pause3"
+                          id="pause31"
                           className="pause"
                           />
                       </Col>
@@ -328,9 +330,9 @@ const CampaignChart = () => {
             <Col className="budget d-flex">
               <span>$25,000</span>
               <div className="edit-budget">
-                <span className="edit-toggler increase">+25%</span>
+                <span className="edit-toggler increase">+25% <i className="fas fa-pen ml-2"></i></span>
                 <div className="dropdown-box edit-dropdown">
-                  <div className="close-dropdown">
+                  <div className="close-dropdown d-flex align-items-center">
                       <span>Edit Multiplier</span>
                       <Button variant="transparent"><i className="fa fa-times" aria-hidden="true"></i></Button>
                   </div>
@@ -381,9 +383,9 @@ const CampaignChart = () => {
             <Col className="budget d-flex">
               <span>$25,000</span>
               <div className="edit-budget">
-                <span className="edit-toggler increase">+25%</span>
+                <span className="edit-toggler increase">+25% <i className="fas fa-pen ml-2"></i></span>
                 <div className="dropdown-box edit-dropdown">
-                  <div className="close-dropdown">
+                  <div className="close-dropdown d-flex align-items-center">
                       <span>Edit Multiplier</span>
                       <Button variant="transparent"><i className="fa fa-times" aria-hidden="true"></i></Button>
                   </div>

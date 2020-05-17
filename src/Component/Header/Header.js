@@ -87,7 +87,7 @@ const Header = () => {
                         </NavDropdown.Item>
                     </Scrollbars>
                 </NavDropdown>
-                <NavDropdown className="user-info mr-2" title="Nadav Kerzner" id="collasible-user-dropdown">
+                <NavDropdown className="user-info pr-2" title="Nadav Kerzner" id="collasible-user-dropdown">
                     <NavDropdown.Item href="#action/3.1">Log Out</NavDropdown.Item>
                     <NavDropdown.Item href="#action/3.2">Change Password</NavDropdown.Item>
                 </NavDropdown>
