@@ -34,7 +34,7 @@ const Header = () => {
                             </div>
                             <div className="information">
                                 <p>You’r campaign: <strong>Campaign number one</strong> has reached to it’s <strong>daily limit.</strong></p>
-                                <span className="notice-time"><i class="far fa-clock"></i> 1h</span>
+                                <span className="notice-time"><i className="far fa-clock"></i> 1h</span>
                             </div>
                         </NavDropdown.Item>
                         <NavDropdown.Item className="d-flex unread" href="#">
@@ -43,7 +43,7 @@ const Header = () => {
                             </div>
                             <div className="information">
                                 <p>You’r campaign: <strong>Campaign number one</strong> has reached to it’s <strong>daily limit.</strong></p>
-                                <span className="notice-time"><i class="far fa-clock"></i> 1h</span>
+                                <span className="notice-time"><i className="far fa-clock"></i> 1h</span>
                             </div>
                         </NavDropdown.Item>
                         <NavDropdown.Item className="d-flex" href="#">
@@ -52,7 +52,7 @@ const Header = () => {
                             </div>
                             <div className="information">
                                 <p>You’r campaign: <strong>Campaign number one</strong> has reached to it’s <strong>daily limit.</strong></p>
-                                <span className="notice-time"><i class="far fa-clock"></i> 1h</span>
+                                <span className="notice-time"><i className="far fa-clock"></i> 1h</span>
                             </div>
                         </NavDropdown.Item>
                         <div className="item-header dropdown-item">
@@ -64,7 +64,7 @@ const Header = () => {
                             </div>
                             <div className="information">
                                 <p>You’r campaign: <strong>Campaign number one</strong> has reached to it’s <strong>daily limit.</strong></p>
-                                <span className="notice-time"><i class="far fa-clock"></i> 1h</span>
+                                <span className="notice-time"><i className="far fa-clock"></i> 1h</span>
                             </div>
                         </NavDropdown.Item>
                         <NavDropdown.Item className="d-flex" href="#">
@@ -73,7 +73,7 @@ const Header = () => {
                             </div>
                             <div className="information">
                                 <p>You’r campaign: <strong>Campaign number one</strong> has reached to it’s <strong>daily limit.</strong></p>
-                                <span className="notice-time"><i class="far fa-clock"></i> 1h</span>
+                                <span className="notice-time"><i className="far fa-clock"></i> 1h</span>
                             </div>
                         </NavDropdown.Item>
                         <NavDropdown.Item className="d-flex" href="#">
@@ -82,7 +82,7 @@ const Header = () => {
                             </div>
                             <div className="information">
                                 <p>You’r campaign: <strong>Campaign number one</strong> has reached to it’s <strong>daily limit.</strong></p>
-                                <span className="notice-time"><i class="far fa-clock"></i> 1h</span>
+                                <span className="notice-time"><i className="far fa-clock"></i> 1h</span>
                             </div>
                         </NavDropdown.Item>
                     </Scrollbars>

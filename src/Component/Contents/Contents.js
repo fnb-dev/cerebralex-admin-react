@@ -1,145 +1,73 @@
 import React, {useState} from 'react';
-import {Row, Col, Tabs, Tab, Form, Button } from 'react-bootstrap';
+import {Row, Col, Button, Form, FormControl } from 'react-bootstrap';
 import { Scrollbars } from "react-custom-scrollbars";
-import "react-datepicker/dist/react-datepicker.css";
-import DatePicker from "react-datepicker";
+import Datepicker from './Datepicker';
 
 const Contents = () => {
-    const [startDate, setStartDate] = useState(new Date("2020/01/09"));
-    const [endDate, setEndDate] = useState(new Date("2020/01/24"));
-    console.log(startDate);
+    const [dropdownToggler, setDropdownToggler] = useState(false)
     return (
       <Col className="content-wrap p-4 bg-black text-white">
         <Row>
           <Col className="content-title">
             <h3>Campaigns View</h3>
           </Col>
-          <Col className="date-picker-col d-flex">
-            <div className="datepicker-wrap ml-auto">
-              <div className="datepicker-toggler">
-                <p>Yesterday: 09 Jan 2020 - 24 Jan 2020</p>
-                <span>vs. 10 Jan - 10 Jan</span>
-              </div>
-              <div className="datepicker-tab-wrap">
-                <Tabs
-                  defaultActiveKey="home"
-                  transition={false}
-                  id="noanim-tab-example"
-                >
-                  <Tab eventKey="home" title="Presets">
+          <Datepicker />
+        </Row>
+        <Row className="mt-4 pt-3">
+          <Col className="action-col d-flex">
+            <Button  variant="primary"><i className="fa fa-plus" aria-hidden="true"></i> New Campaign</Button>
+            <div className="filter-wrapper border-left ml-4 pl-4">
+              <div className="filter-content position-relative">
+                <Button variant="outline-white"><i className="fa fa-filter" aria-hidden="true"></i> Add Filter</Button>
+                <div className="filter-dropdown position-absolute">
+                  <div className="close-filter-dropdown">
+                    <Button variant="transparent"><i className="fa fa-times" aria-hidden="true"></i></Button>
+                  < /div>
+                  <Scrollbars style={{ width: 320, height: 477 }}>
                     <Form>
-                      <Scrollbars style={{ width: 320, height: 425 }}>
-                        <Form.Group>
-                          <Form.Check
-                            type="radio"
-                            label="Today"
-                            name="presets"
-                            id="today"
-                          />
-                          <Form.Check
-                            type="radio"
-                            label="Yesterday"
-                            name="presets"
-                            id="yesterday"
-                          />
-                          <Form.Check
-                            type="radio"
-                            label="Last 30 Days"
-                            name="presets"
-                            id="last30Days"
-                          />
-                          <Form.Check
-                            type="radio"
-                            label="This Month"
-                            name="presets"
-                            id="thisMonth"
-                          />
-                          <Form.Check
-                            type="radio"
-                            label="Last Month"
-                            name="presets"
-                            id="lastMonth"
-                          />
-                          <Form.Check
-                            type="radio"
-                            label="Last 30 Days"
-                            name="presets"
-                            id="last30Days2"
-                          />
-                          <Form.Check
-                            type="radio"
-                            label="This Month"
-                            name="presets"
-                            id="thisMonth2"
-                          />
-                          <Form.Check
-                            type="radio"
-                            label="Last Month"
-                            name="presets"
-                            id="lastMonth2"
-                          />
-                          <Form.Check
-                            type="radio"
-                            label="Last 30 Days"
-                            name="presets"
-                            id="last30Days3"
-                          />
-                          <Form.Check
-                            type="radio"
-                            label="This Month"
-                            name="presets"
-                            id="thisMonth3"
-                          />
-                          <Form.Check
-                            type="radio"
-                            label="Last Month"
-                            name="presets"
-                            id="lastMonth3"
-                          />
+                        <Form.Group className={dropdownToggler ? "checkbox show" : "checkbox"}>
+                          <Form.Label className="d-flex" as="legend" column sm={12}>
+                            <span>Status</span>
+                            <span className="toggle-icon ml-auto" onClick={() => setDropdownToggler(!dropdownToggler)}><i className="fa fa-chevron-down" aria-hidden="true"></i></span>
+                          </Form.Label>
+                          {
+                            dropdownToggler ?
+                            <Col sm={12}>
+                              <Form.Check
+                                type="radio"
+                                label="Active"
+                                name="status"
+                                id="active"
+                              />
+                              <Form.Check
+                                type="radio"
+                                label="Pause"
+                                name="status"
+                                id="pause"
+                              />
+                              <Form.Check
+                                type="radio"
+                                label="Archive"
+                                name="status"
+                                id="archive"
+                              />
+                            </Col>
+                            : ""
+                          }
                         </Form.Group>
-                      </Scrollbars>
-                      <Form.Group className="button-row text-center">
-                        <Col>
-                          <Button type="submit">Done</Button>
-                        </Col>
-                      </Form.Group>
                     </Form>
-                  </Tab>
-                  <Tab
-                    className="datepicker-contents"
-                    eventKey="profile"
-                    title="Custom Range"
-                  >
-                    <Row className="no-gutters action-row">
-                      <p>09/01/2020 - 09/01/2020</p>
-                      <Form.Check
-                        className="ml-auto"
-                        type="switch"
-                        id="custom-switch"
-                        label="Compare"
-                      />
-                    </Row>
-                    <Row className="no-gutters datepicker-row">
-                      <DatePicker
-                        selected={startDate}
-                        onChange={(date) => setStartDate(date)}
-                        inline
-                        startDate={startDate}
-                        endDate={endDate}
-                        //monthsShown={2}
-                      />
-                      <DatePicker
-                        selected={endDate}
-                        onChange={(date) => setEndDate(date)}
-                        inline
-                        startDate={startDate}
-                        endDate={endDate}
-                        minDate={startDate}
-                      />
-                    </Row>
-                  </Tab>
-                </Tabs>
+                  </Scrollbars>
+                </div>
               </div>
+            </div>
+          </Col>
+          <Col className="d-flex">
+            <div className="search-wrapper ml-auto d-flex">
+              <Form inline>
+                <Button><i className="fa fa-search" aria-hidden="true"></i></Button>
+                <FormControl type="text" placeholder="Search..." className="mr-sm-2" />
+              </Form>
+              <Button><i className="fa fa-share-square" aria-hidden="true"></i> Export</Button>
             </div>
           </Col>
         </Row>

@@ -1,8 +1,43 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
 
 body {
-  font-family: 'Open Sans', sans-serif;
-  font-weight: 400;
+  font-family: 'Open Sans', sans-serif !important;
+  font-weight: 400 !important;
+  font-size: 14px !important;
+}
+
+h3{
+  font-size: 22px !important;
+  line-height: 30px !important;
+  font-weight: 400 !important;
+}
+
+.btn{
+  font-size: 14px !important;
+  border-radius: 4px !important;
+}
+
+.btn-primary{
+  border: 0 !important;
+  box-shadow: 0 1px 4px 0 #5664fb;
+  background-image: linear-gradient(to left, #5664fb, #5597fb);
+}
+
+.btn-transparent{
+  color: #8393a8 !important;
+}
+
+.border{
+  border-color: #1f242d !important;
+}
+
+.filter-wrapper.border-left {
+  border-left: 1px solid #1f242d !important;
+}
+
+.btn-outline-white{
+  border: solid 1px white !important;
+  color: white !important;
 }
 
 .bg-dark-gray {
@@ -28,10 +63,6 @@ body {
 
 .navbar-dark .navbar-toggler-icon {
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
-}
-
-.header-section span {
-  font-size: 14px !important;
 }
 
 .header-section span svg {
@@ -359,11 +390,75 @@ body {
   opacity: 1;
 }
 
+.datepicker-wrap{
+  position: relative;
+}
+
+.datepicker-toggler{
+  width: 320px;
+  box-shadow: 0 0 8px 0 #000000;
+  border: solid 1px #1f242d;
+  background-color: #06090e;
+  padding: 4px 15px;
+  font-size: 14px;
+  position: relative;
+  border-radius: 4px;
+}
+
+.show .datepicker-toggler{
+  border-color: white;
+}
+
+.datepicker-toggler .icon{
+  background: transparent;
+  border: 0;
+  position: absolute;
+  right: 6px;
+  top: 50%;
+  padding: 6px;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  color: #ffffff;
+  outline: none;
+}
+
+.datepicker-toggler p{
+  margin-bottom: 0;
+}
+
+.datepicker-toggler span{
+  font-size: 12px;
+  line-height: 17px;
+  color: #8393a8;
+}
+
+.hideDatepicker{
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  display: block;
+  margin-left: auto;
+  margin-top: 12px;
+  margin-right: 12px;
+  color: #8393a8;
+  outline: none;
+}
+
 .datepicker-tab-wrap {
   box-shadow: 0 0 8px 0 #000000;
   border: solid 1px #1f242d;
   background-color: #06090e;
-  border-radius: 5px;
+  border-radius: 4px;
+  margin-top: 6.5px;
+  position: absolute;
+  right: 0;
+  display: none;
+  z-index: 9;
+}
+
+.show .datepicker-tab-wrap{
+  display: block;
 }
 
 .nav-tabs {
@@ -375,6 +470,7 @@ body {
   text-align: center;
   position: relative;
   color: #8393a8;
+  outline: none;
 }
 
 .nav-tabs .nav-item:hover {
@@ -420,6 +516,7 @@ body {
   position: absolute;
   background: transparent;
   appearance: none;
+  opacity: 0;
 }
 
 .form-check-label {
@@ -434,9 +531,13 @@ body {
 .form-check-label::before,
 .form-check-label::after {
   content: "";
-  border-radius: 50%;
   position: absolute;
   left: 0;
+}
+
+.radio .form-check-label::before,
+.radio .form-check-label::after {
+  border-radius: 50%;
 }
 
 .form-check-label::before {
@@ -446,14 +547,17 @@ body {
 }
 
 .form-check-label::after {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .4s;
+}
+
+.radio .form-check-label::after{
   width: 11px;
   height: 11px;
   box-shadow: 0 0 4px 0 #5597fb;
   background-color: #5597fb;
   margin: 3px;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity .4s;
 }
 
 .form-check input:checked~.form-check-label {
@@ -536,10 +640,12 @@ body {
 
 .datepicker-row > div:first-child{
   margin-right: 15px;
+  margin-left: auto;
 }
 
 .datepicker-row > div:last-child{
   margin-left: 15px;
+  margin-right: auto;
 }
 
 .react-datepicker{
@@ -562,11 +668,179 @@ body {
   color: #ffffff !important;
 }
 
+.react-datepicker__day-name,
+.react-datepicker__day,
+.react-datepicker__time-name{
+  margin: 1px 0 !important;
+  width: 30px !important;
+  line-height: 30px !important;
+}
+
+.react-datepicker__day--selected,
+.react-datepicker__day--in-selecting-range,
+.react-datepicker__day--in-range,
+.react-datepicker__month-text--selected,
+.react-datepicker__month-text--in-selecting-range,
+.react-datepicker__month-text--in-range,
+.react-datepicker__quarter-text--selected,
+.react-datepicker__quarter-text--in-selecting-range,
+.react-datepicker__quarter-text--in-range{
+  border-radius: 0 !important;
+}
+
+.react-datepicker__day--selected.react-datepicker__day--in-range::before,
+.react-datepicker__day--in-range:nth-of-type(-n+1){
+  border-radius: 50% 0 0 50% !important;
+}
+
+.react-datepicker__day--range-end.react-datepicker__day--in-range::before,
+.react-datepicker__day--in-range:nth-last-of-type(-n+1){
+  border-radius: 0 50% 50% 0 !important;
+}
+
 .react-datepicker__day--outside-month{
   color: #424a54 !important;
 }
 
-.react-datepicker__day--selected{
-  background-color: #46e1b6 !important;
+.react-datepicker__day--selected.react-datepicker__day--in-range,
+.react-datepicker__day--range-end.react-datepicker__day--in-range {
+  background-color: #5597fb !important;
   border-radius: 50% !important;
+  position: relative;
 }
+
+.compared .react-datepicker__day--selected.react-datepicker__day--in-range,
+.compared .react-datepicker__day--range-end.react-datepicker__day--in-range {
+  background-color: #46e1b6 !important;
+}
+
+.react-datepicker__day--selected.react-datepicker__day--in-range::before,
+.react-datepicker__day--range-end.react-datepicker__day--in-range::before{
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.react-datepicker__day--selected.react-datepicker__day--in-range::before,
+.react-datepicker__day--range-end.react-datepicker__day--in-range::before,
+.react-datepicker__day--in-range{
+  background-color: rgba(85, 151, 251, 0.16) !important;
+}
+
+.compared .react-datepicker__day--selected.react-datepicker__day--in-range::before,
+.compared .react-datepicker__day--range-end.react-datepicker__day--in-range::before,
+.compared .react-datepicker__day--in-range{
+  background-color: rgba(70, 225, 182, 0.16) !important;
+}
+
+.datepicker-row>div:last-child .react-datepicker__day--selected.react-datepicker__day--in-range::before,
+.datepicker-row>div:last-child .react-datepicker__day--range-end.react-datepicker__day--in-range::before,
+.datepicker-row>div:last-child .react-datepicker__day--in-range {
+  background-color: transparent !important;
+}
+
+.datepicker-contents .button-row{
+  width: 572px;
+  position: relative;
+  left: auto;
+  bottom: auto;
+}
+
+.selectedDate p{
+  margin-bottom: 0;
+  padding-bottom: 5px;
+  border-bottom: solid 1px #1f242d;
+}
+
+.selectedDate p.compared-date{
+  border-color: #46e1b6;
+}
+
+.search-wrapper .form-control{
+  background: transparent !important;
+  border-radius: 0 !important;
+  border: 0 !important;
+  color: #626e7e;
+  font-size: 14px;
+  outline: none;
+  box-shadow: none;
+}
+
+.search-wrapper .form-control:focus{
+  outline: none;
+  box-shadow: none;
+}
+
+.search-wrapper .form-inline{
+  border-bottom: 1px solid #1f242d !important;
+  margin-right: 15px;
+}
+
+.search-wrapper .form-inline button{
+  background: transparent;
+  box-shadow: none;
+  color: #626e7e;
+  padding: 3px;
+}
+
+.filter-dropdown{
+  width: 320px;
+  height: 590.6px;
+  box-shadow: 0 0 8px 0 #000000;
+  border: solid 1px #1f242d;
+  background-color: #06090e;
+  margin-top: 10px;
+}
+
+.filter-dropdown::before{
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-right: 1px solid #1f242d;
+  border-top: 1px solid #1f242d;
+  background-color: #06090e;
+  z-index: 3;
+  left: 15%;
+  position: absolute;
+  transform: rotate(-45deg);
+  top: -5px;
+}
+
+.close-filter-dropdown{
+  border-bottom: solid 1px #1f242d;
+}
+
+.close-filter-dropdown button{
+  display: block;
+  margin-left: auto;
+}
+
+.toggle-icon{
+  cursor: pointer;
+}
+
+.checkbox.form-group {
+  padding: 20px 0;
+  border-bottom: solid 1px #1f242d;
+}
+
+.checkbox.form-group > label span{
+  color: #8393a8;
+}
+
+.checkbox.form-group .form-check {
+  border: 0;
+  padding: 8px 0 !important;
+}
+
+.checkbox .form-check-label::after {
+  width: 13px;
+  height: 13px;
+  margin-left: 2px;
+  margin-top: 2px;
+  background-image: url(./images/check-icon.png);
+}
+
