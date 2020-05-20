@@ -16,6 +16,7 @@ h3{
 .btn{
   font-size: 14px !important;
   border-radius: 4px !important;
+  white-space: nowrap !important;
 }
 
 .btn-primary{
@@ -89,10 +90,6 @@ h3{
   top: -5px;
 }
 
-/* .dropdown-toggle::after {
-  content: ;
-} */
-
 /* Header section */
 .navbar {
   padding: 18px 20px !important;
@@ -122,6 +119,10 @@ h3{
 .nav-icon,
 .navbar-brand {
   line-height: 0 !important;
+}
+
+.navbar-brand img{
+  max-width: 100%;
 }
 
 .navbar-dark .navbar-brand {
@@ -352,9 +353,13 @@ h3{
 
 /* Sidebar style */
 .sidebar-container {
-  min-width: 202.5px;
+  width: 202.5px;
   min-height: -webkit-calc(100vh - 60px);
   min-height: calc(100vh - 60px);
+}
+
+.collapsed .sidebar-container{
+  width: 53px;
 }
 
 .sidebar-container .list-group-item {
@@ -364,6 +369,11 @@ h3{
   -webkit-transition: all .4s ease-in-out;
   -moz-transition: all .4s ease-in-out;
   transition: all .4s ease-in-out;
+}
+
+.collapsed .sidebar-container .list-group-item .nav-text{
+  opacity: 0;
+  visibility: hidden;
 }
 
 .sidebar-container .list-group-item::after {
@@ -474,7 +484,6 @@ h3{
   background: transparent;
   border: 0;
   cursor: pointer;
-  display: block;
   margin-left: auto;
   margin-top: 12px;
   margin-right: 12px;
@@ -609,7 +618,7 @@ h3{
 
 .datepicker-tab-wrap .button-row {
   position: absolute;
-  bottom: 1px;
+  bottom: 0px;
   left: 1px;
 }
 
@@ -874,6 +883,12 @@ h3{
   box-shadow: none;
 }
 
+.action-col > .btn,
+.search-wrapper .btn,
+.filter-btn.btn{
+  height: 34px;
+}
+
 .search-wrapper button:active,
 .search-wrapper button:focus{
   box-shadow: none !important;
@@ -959,6 +974,7 @@ h3{
   margin-left: 8px;
   color: white;
   cursor: pointer;
+  white-space: nowrap;
 }
 
 .active-fliter-action > button{
@@ -1025,6 +1041,10 @@ h3{
   left: 38%;
 }
 
+.campaign-chart{
+  overflow-x: auto;
+}
+
 .campaign-chart > .row{
   padding: 12px 0 12px 4px;
   border-radius: 4px;
@@ -1033,6 +1053,7 @@ h3{
   position: relative;
   align-items: center;
   min-height: 65px;
+  min-width: 1280px;
 }
 
 .campaign-chart>.row:hover{
@@ -1079,7 +1100,7 @@ h3{
 }
 
 .name.col{
-  width: 310px;
+  width: 290px;
 }
 
 .name.col .action {
@@ -1220,6 +1241,8 @@ h3{
 
 .graph-chart-wrap{
   margin-top: 20px;
+  padding-bottom: 16px;
+  padding-right: 15px;
   border-radius: 4px;
   background-color: #06090e;
 }
@@ -1241,6 +1264,16 @@ h3{
 
 .graph-chart-wrap .col:first-child {
   width: 250px !important;
+}
+
+.graph-chart{
+  width: calc(100% - 250px) !important;
+  max-width: 1392px !important;
+  border-right: 1px solid #1f242d;
+}
+
+.graph-chart img {
+  max-width: 100%;
 }
 
 .information-col .info-item{
@@ -1288,8 +1321,11 @@ h3{
 }
 
 .time-range{
+  max-width: 1392px !important;
   padding-top: 15px;
+  padding-right: 15px;
   color: #929eb9;
+  border-top: 1px solid #1f242d;
 }
 
 .edit-dropdown .close-dropdown{
@@ -1328,4 +1364,394 @@ h3{
 
 .save-btn{
   color: #5597fb !important;
+}
+
+.ScrollbarsCustom-Content,
+.scroll-row > div:first-child{
+  display: flex;
+  align-items: center;
+}
+
+@media only screen and (max-width: 767px){
+
+  h2{
+    font-size: 20px !important;
+  }
+  .navbar-toggler-icon{
+    width: 20px !important;
+    height: 20px !important;
+  }
+  .navbar{
+    padding: 13px 14px !important;
+  }
+
+  .user-info .dropdown-toggle::after {
+    margin-left: 20px;
+  }
+
+  .navbar-brand{
+    width: 163px;
+  }
+  .sidebar-container.bg-light-dark,
+  .sidebar-container{
+    width: 300px;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 99;
+    border-right: 1px solid #1f242d;
+    -webkit-transform: translateX(-100%);
+    -ms-transform: translateX(-100%);
+    transform: translateX(-100%);
+    background-color: #000000 !important;
+  }
+  .collapsed .sidebar-container{
+    width: 300px;
+    -webkit-transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0);
+  }
+
+  .collapsed .sidebar-container::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 100vw;
+    top: 0;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .6);
+  }
+
+  .datepicker-toggler span{
+    color: #ffffff;
+  }
+  
+  .sidebar-container .list-group-item{
+    padding-left: 45px;
+    background-color: #000000 !important;
+  }
+
+  .collapsed .sidebar-container .list-group-item .nav-text{
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .sidebar-container .action-row{
+    height: 52px;
+    border-bottom: 1px solid #1f242d;
+    padding-right: 17px;
+    background-color: #06090e;
+  }
+
+  .sidebar-container .list-group {
+    padding-top: 30px;
+  }
+
+  .sidebar-close{
+    width: 20px;
+    height: 20px;
+    position: relative;
+    padding: 3px;
+  }
+
+  .sidebar-close:before,
+  .sidebar-close:after{
+    content: "";
+    position: absolute;
+    left: 3px;
+    width: 19px;
+    height: 2px;
+    background-color: #ffffff;
+    border-radius: 4px;
+  }
+
+  .sidebar-close:after{
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+
+  .sidebar-close::before{
+    -webkit-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+  }
+
+  .content-title{
+    padding-bottom: 18px;
+  }
+
+  .datepicker-wrap{
+    width: 100%;
+  }
+
+  .datepicker-toggler {
+    max-width: 107px;
+    padding: 0;
+    border: 0;
+  }
+  .datepicker-toggler.ml-auto {
+    margin-left: 0 !important;
+  }
+
+  .datepicker-toggler .icon{
+    font-size: 10px;
+    line-height: 0;
+  }
+
+  .datepicker-tab-wrap{
+    position: fixed;
+    left: 0;
+    top: 50px;
+    width: 100vw;
+    height: calc(100vh - 50px);
+    margin-top: 0;
+    z-index: 25;
+  }
+
+  .datepicker-tab-wrap .heading-row {
+    padding: 16px 20px;
+  }
+
+  .hideDatepicker{
+    margin-top: 0;
+  }
+
+  .datepicker-tab-wrap.dropdown-box::before{
+    display: none;
+  }
+
+  .nav-tabs{
+    justify-content: space-between;
+    border-bottom: 0 !important;
+    padding-right: 12px;
+    padding-left: 12px !important;
+  }
+  
+  .nav-tabs .nav-item{
+    width: 47%;
+    white-space: nowrap;
+  }
+
+  .nav-tabs .nav-item::before{
+    content: "";
+    height: 1px;
+    background-color: #1f242d;
+    bottom: 0;
+    position: absolute;
+    left: 0;
+    right: 0;
+  }
+
+  .nav-tabs .nav-item:first-child{
+    margin-left: 0;
+  }
+
+  .datepicker-contents .button-row,
+  .datepicker-contents{
+    width: 100vw;
+  }
+
+  .datepicker-contents .action-row.row{
+    display: none;
+  }
+
+  .datepicker-row>div:first-child{
+    margin-right: auto;
+  }
+  .datepicker-row>div:last-child{
+    margin-left: auto;
+  }
+
+  .react-datepicker__day-name,
+  .react-datepicker__day,
+  .react-datepicker__time-name {
+    width: 40px !important;
+    line-height: 40px !important;
+  }
+
+  .datepicker-contents .row{
+    padding-right: 12px;
+    padding-left: 12px;
+  }
+
+  .button-row.form-group{
+    width: 100%;
+    left: 0 !important;
+  }
+
+  .datepicker-contents .button-row.form-group{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+  }
+
+  .datepicker-contents .datepicker-row {
+    max-height: calc(100vh - 210px);
+    overflow-y: auto;
+  }
+
+  .custom-scrollbar{
+    max-height: calc(100vh - 210px);
+    width: 100% !important;
+  }
+
+  .custom-scrollbar > div{
+    margin-right: 0 !important;
+  }
+
+  .search-wrapper{
+    width: 100%;
+  }
+
+  .search-wrapper .form-inline{
+    width: calc(100% - 80px);
+  }
+
+  .form-inline .form-control{
+    width: calc(100% - 20px) !important;
+  }
+
+  .search-close{
+    background: #10141c !important;
+    border-radius: 25px !important;
+    box-shadow: none;
+    border: 0;
+    width: 80px;
+  }
+
+  .filter-wrapper.border-left{
+    margin-left: 0 !important;
+    border-left: 0 !important;
+    position: absolute;
+    right: 0;
+    top: -65px;
+    z-index: 9;
+  }
+
+  .filter-btn.btn{
+    border: 0 !important;
+  }
+
+  .filter-btn.btn span{
+    display: none;
+  }
+
+  .filter-dropdown.position-absolute{
+    position: fixed !important;
+    top: 50px;
+    left: 0;
+    width: 100vw;
+    margin-top: 0;
+  }
+
+  .filter-dropdown .custom-scrollbar{
+    max-height: calc(100vh - 165px);
+    width: 100% !important;
+  }
+
+  .search-triger{
+    background: transparent !important;
+    border: 0 !important;
+    box-shadow: none;
+  }
+
+  .content-wrap{
+    position: relative;
+  }
+
+  .information-col{
+    border-right: 0 !important;
+  }
+
+  .graph-chart-wrap{
+    padding-right: 0;
+  }
+
+  .information-col .info-item{
+    width: 100%;
+  }
+
+  .graph-chart-wrap .col:first-child,
+  .graph-chart-wrap .information-col {
+    padding-right: 20px !important;
+    width: 100% !important;
+  }
+
+  .notfications .dropdown-menu{
+    position: absolute !important;
+    left: auto;
+    right: 0;
+    -webkit-transform: translate(0);
+    -ms-transform: translate(0);
+    transform: translate(0);
+    min-width: 50px;
+    width: calc(100vw - 28px);
+  }
+
+  .notification-custom-scroll{
+    width: 100% !important;
+    max-height: calc(100vh - 55px);
+  }
+
+  .notification-custom-scroll > div{
+    margin-right: 0 !important;
+  }
+
+  .notification-custom-scroll>div:first-child{
+    padding-bottom: 20px;
+  }
+
+  .notfications .dropdown-menu::before{
+    right: 1px;
+    margin-right: 0;
+  }
+
+  .action-column .select-mark{
+    display: none;
+  }
+
+  .action-column .activities-triger{
+    margin-left: 0;
+  }
+
+  .activities-triger .active{
+    position: absolute;
+    left: 0;
+    top: -17px;
+    border-radius: 2px;
+    width: 3px;
+    height: 52px;
+    box-shadow: 0 0 4px 0 #46e1b6;
+    background-color: #46e1b6;
+    object-fit: contain;
+  }
+  
+  .name.col {
+    width: 101px;
+  }
+
+  .action-column{
+    width: 12px !important;
+  }
+
+  .campaign-chart>.row{
+    padding-left: 0;
+  }
+  .campaign-chart>.row::before{
+    display: none;
+  }
+
+}
+
+@media only screen and (max-width: 1200px){
+  .filter-dropdown{
+    left: auto !important;
+    right: 0;
+  }
+  .filter-dropdown.dropdown-box::before{
+    left: auto !important;
+    right: 15% !important;
+  }
 }

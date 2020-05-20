@@ -13,7 +13,7 @@ const CampaignChart = () => {
                 <label htmlFor="checkbox-1" className="checkbox"></label>
               </div>
             </Col>
-            <Col className="name col-auto">Campaign Name</Col>
+            <Col className="name col-auto">Campaign <span className="d-none d-md-inline">Name</span> </Col>
             <Col className="budget">Daily Budget</Col>
             <Col className="click">Clicks</Col>
             <Col className="impressions">Impressions</Col>
@@ -378,7 +378,7 @@ const CampaignChart = () => {
           <Row className="total-row no-gutters">
             <Col className="action-column col-auto d-flex align-items-center"></Col>
             <Col className="name col-auto">
-              <span>Total ( All Campaigns)</span>
+              Total  <span className="d-none d-md-inline">( All Campaigns)</span>
             </Col>
             <Col className="budget d-flex">
               <span>$25,000</span>

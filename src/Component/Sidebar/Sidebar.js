@@ -1,5 +1,5 @@
 import React from 'react';
-import { ListGroup } from 'react-bootstrap';
+import { ListGroup, NavDropdown, Button } from 'react-bootstrap';
 
 import accounts from '../../images/svgs/accounts.svg'
 import accountsActive from '../../images/svgs/accounts-color.svg'
@@ -14,9 +14,16 @@ import historyActive from '../../images/svgs/history-color.svg'
 import library from '../../images/svgs/library.svg'
 import libraryActive from '../../images/svgs/library-color.svg'
 
-const Sidebar = () => {
+const Sidebar = ({setToggleNav, toggleNav}) => {
     return(
         <aside className="sidebar-expanded sidebar-container bg-light-dark" id="sidebar-container">
+            <div className="action-row d-flex align-items-center pl-3">
+                <NavDropdown className="user-info pr-2 d-md-none" title="Nadav Kerzner" id="collasible-user-dropdown">
+                    <NavDropdown.Item href="#action/3.1">Log Out</NavDropdown.Item>
+                    <NavDropdown.Item href="#action/3.2">Change Password</NavDropdown.Item>
+                </NavDropdown>
+                <Button variant="transparent" onClick={() => setToggleNav(!toggleNav)} className="ml-auto sidebar-close"></Button>
+            </div>
             <ListGroup defaultActiveKey="#link1">
                 <ListGroup.Item className="bg-light-dark d-flex align-items-center" action href="#link1">
                     <div className="nav-icon">

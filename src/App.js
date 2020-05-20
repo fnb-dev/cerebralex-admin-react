@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
 import "bootstrap/dist/css/bootstrap.min.css";
 import Header from './Component/Header/Header';
@@ -11,11 +11,12 @@ config.autoA11y = true;
 
 
 function App() {
+  const [toggleNav, setToggleNav] = useState(false);
   return (
-    <div className="App">
-      <Header />
+    <div className={ toggleNav ? "App collapsed" : "App"}>
+      <Header setToggleNav={setToggleNav} toggleNav={toggleNav} />
       <Row className="no-gutters">
-        <Sidebar />
+        <Sidebar setToggleNav={setToggleNav} toggleNav={toggleNav} />
         <Contents />
       </Row>
     </div>

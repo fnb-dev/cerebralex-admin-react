@@ -3,15 +3,15 @@ import logo from "../../logo.svg";
 import { Navbar, NavDropdown, Nav } from 'react-bootstrap';
 import { Scrollbars } from "react-custom-scrollbars";
 
-const Header = () => {
+const Header = ({setToggleNav, toggleNav}) => {
     return (
       <header className="header-section">
         <Navbar className="bg-light-dark align-items-center" collapseOnSelect expand="md" variant="dark">
-            <Navbar.Toggle className="d-block text-white nav-icon mr-3" aria-controls="basic-navbar-nav" />
+            <Navbar.Toggle onClick={() => setToggleNav(!toggleNav)} className="d-block text-white nav-icon mr-3" aria-controls="basic-navbar-nav" />
             <Navbar.Brand href="#home">
                 <img src={logo} className="brand-logo" alt="Logo" />
             </Navbar.Brand>
-            <Nav className="text-white account-info border-left pl-4 ml-3">
+            <Nav className="text-white account-info border-left pl-4 ml-3 d-none d-md-inline">
                 <NavDropdown title="Account Number One" id="collasible-nav-dropdown">
                     <NavDropdown.Item href="#action/3.1">Account Number Two</NavDropdown.Item>
                     <NavDropdown.Item href="#action/3.2">Account Number Three</NavDropdown.Item>
@@ -19,8 +19,8 @@ const Header = () => {
                 </NavDropdown>
             </Nav>
             <Nav className="text-white ml-auto">
-                <NavDropdown className="notfications mr-3" title="" id="collasible-notification-dropdown">
-                    <Scrollbars style={{ width: 323, height: 475 }}>
+                <NavDropdown className="notfications mr-md-3" title="" id="collasible-notification-dropdown">
+                    <Scrollbars className="notification-custom-scroll" style={{ width: 323, height: 475 }}>
                         <div className="notification-dropdown-header d-flex">
                             <span>Notifications</span>
                             <button className="close-notification ml-auto"></button>
@@ -87,7 +87,7 @@ const Header = () => {
                         </NavDropdown.Item>
                     </Scrollbars>
                 </NavDropdown>
-                <NavDropdown className="user-info pr-2" title="Nadav Kerzner" id="collasible-user-dropdown">
+                <NavDropdown className="user-info pr-2 d-none d-md-inline" title="Nadav Kerzner" id="collasible-user-dropdown">
                     <NavDropdown.Item href="#action/3.1">Log Out</NavDropdown.Item>
                     <NavDropdown.Item href="#action/3.2">Change Password</NavDropdown.Item>
                 </NavDropdown>

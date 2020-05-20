@@ -11,17 +11,25 @@ const Datepicker = () => {
     const [dateToggleState, setDateToggleState] = useState(false);
     
     return(
-        <Col className="date-picker-col d-flex">
+        <Col className="date-picker-col d-flex col-6">
             <div className={dateToggleState ? "datepicker-wrap ml-auto show" : "datepicker-wrap ml-auto"}>
               <div className="d-flex">
                 <div className="datepicker-toggler ml-auto">
-                  <p>Yesterday: 09 Jan 2020 - 24 Jan 2020</p>
-                  <span>vs. 10 Jan - 10 Jan</span>
-                  <button className="icon" onClick={() => setDateToggleState(!dateToggleState)}><i className="fa fa-chevron-down" aria-hidden="true"></i></button>
+                    <div className="d-none d-md-block">
+                      <p>Yesterday: 09 Jan 2020 - 24 Jan 2020</p>
+                      <span>vs. 10 Jan - 10 Jan</span>
+                    </div>
+                    <div className="d-flex align-items-center d-md-none">
+                    <i className="far fa-calendar-alt"></i> <span className="mx-2">Yesterday</span>
+                    </div>
+                    <button className="icon" onClick={() => setDateToggleState(!dateToggleState)}><i className="fa fa-chevron-down" aria-hidden="true"></i></button>
                 </div>
               </div>
               <div className="datepicker-tab-wrap dropdown-box">
-                <button className="hideDatepicker" onClick={() => setDateToggleState(!dateToggleState)}><i className="fa fa-times" aria-hidden="true"></i></button>
+                <div className="d-flex heading-row">
+                  <span className="d-md-none">Select Dates</span>
+                  <button className="hideDatepicker ml-auto" onClick={() => setDateToggleState(!dateToggleState)}><i className="fa fa-times" aria-hidden="true"></i></button>
+                </div>
                 <Tabs
                   defaultActiveKey="presets"
                   transition={false}
@@ -29,7 +37,7 @@ const Datepicker = () => {
                 >
                   <Tab eventKey="presets" title="Presets">
                     <Form>
-                      <Scrollbars style={{ width: 320, height: 425 }}>
+                      <Scrollbars className="custom-scrollbar" style={{ width: 320, height: 425 }}>
                         <Form.Group className="radio">
                           <Form.Check
                             type="radio"
@@ -127,22 +135,22 @@ const Datepicker = () => {
                       />
                     </Row>
                     <Row className="no-gutters datepicker-row">
-                      <DatePicker
-                        selected={startDate}
-                        onChange={(date) => setStartDate(date)}
-                        inline
-                        startDate={startDate}
-                        endDate={endDate}
-                        //monthsShown={2}
-                      />
-                      <DatePicker
-                        selected={endDate}
-                        onChange={(date) => setEndDate(date)}
-                        inline
-                        startDate={startDate}
-                        endDate={endDate}
-                        minDate={startDate}
-                      />
+                        <DatePicker
+                          selected={startDate}
+                          onChange={(date) => setStartDate(date)}
+                          inline
+                          startDate={startDate}
+                          endDate={endDate}
+                          //monthsShown={2}
+                        />
+                        <DatePicker
+                          selected={endDate}
+                          onChange={(date) => setEndDate(date)}
+                          inline
+                          startDate={startDate}
+                          endDate={endDate}
+                          minDate={startDate}
+                        />
                     </Row>
                     <Form.Group className="button-row text-center">
                       <Col>
